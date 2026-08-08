@@ -12,7 +12,11 @@ NPC 对话：    "I can tell you about tools..." / "我可以告诉你关于工�
 
 ## 效果预览
 
-> 截图待补充
+![游戏界面](images/游戏界面完整.png)
+
+![背包](images/背包.png)
+
+![NPC 对话](images/对话.png)
 
 ## 玩家使用方法（不用懂任何技术）
 
