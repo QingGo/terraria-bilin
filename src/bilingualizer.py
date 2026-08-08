@@ -59,7 +59,7 @@ class Decision:
 
 @dataclass
 class BilingualResult:
-    """en-first 与 zh-first 两套输出 + 统计。"""
+    """两个语言文件输出（均为 EN / 中文 顺序）+ 统计。"""
     en_first: dict[str, dict[str, str]] = field(default_factory=dict)
     zh_first: dict[str, dict[str, str]] = field(default_factory=dict)
     dual_count: int = 0
@@ -91,8 +91,7 @@ def bilingualize(en_data: dict, zh_data: dict) -> BilingualResult:
                     result.excluded_count += 1
                 continue
             result.en_first.setdefault(category, {})[key] = decision.dual_text
-            zh_first = format_dual(decision.zh, decision.en)
-            result.zh_first.setdefault(category, {})[key] = zh_first
+            result.zh_first.setdefault(category, {})[key] = decision.dual_text
             result.dual_count += 1
     return result
 

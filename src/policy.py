@@ -5,8 +5,7 @@
 - SINGLE     保留原语言（空间敏感 / 生成随机名等）
 - DUAL       替换为 "EN / 中文" 或 "EN\\n中文"
 
-UI / GameUI 采用逐 key 规则：短词按钮（<=8 字符且无空格）空间敏感 → SINGLE，
-其余短语 → DUAL。
+UI / GameUI 采用逐 key 规则：极短符号（<=3 字符）空间敏感 → SINGLE，其余短语 → DUAL。
 """
 from __future__ import annotations
 
@@ -26,7 +25,7 @@ SINGLE_PREFIXES = (
 
 UI_LIKE_CATEGORIES = frozenset({"UI", "GameUI"})
 
-SHORT_LABEL_MAX = 8  # 字符数阈值：更短的单词按钮保留单语
+SHORT_LABEL_MAX = 3  # 字符数阈值：仅 AM/PM/HP 等极短符号保留单语
 
 
 def classify(category: str, text_en: str) -> str:

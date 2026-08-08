@@ -58,7 +58,8 @@ class TestBilingualize:
         zh = {"ItemName": {"CopperShortsword": "铜短剑"}}
         r = bilingualize(en, zh)
         assert r.en_first["ItemName"]["CopperShortsword"] == "Copper Shortsword / 铜短剑"
-        assert r.zh_first["ItemName"]["CopperShortsword"] == "铜短剑 / Copper Shortsword"
+        # 中文语言文件同样英文在前
+        assert r.zh_first["ItemName"]["CopperShortsword"] == "Copper Shortsword / 铜短剑"
         assert r.dual_count == 1
 
     def test_identical_skipped(self):
@@ -83,11 +84,17 @@ class TestBilingualize:
         assert "占位符不一致" in r.skipped[0].skipped_reason
 
     def test_short_ui_label_single(self):
-        en = {"UI": {"Play": "Play"}}
-        zh = {"UI": {"Play": "播放"}}
+        en = {"UI": {"TimeAtMorning": "AM"}}
+        zh = {"UI": {"TimeAtMorning": "上午"}}
         r = bilingualize(en, zh)
         assert r.dual_count == 0
         assert r.single_count == 1
+
+    def test_ui_word_now_dual(self):
+        en = {"UI": {"PlayerCreateCategoryEyeColor": "Eyes"}}
+        zh = {"UI": {"PlayerCreateCategoryEyeColor": "眼睛"}}
+        r = bilingualize(en, zh)
+        assert r.dual_count == 1
 
     def test_long_ui_phrase_dual(self):
         en = {"UI": {"QuickUseItem": "Quick Use"}}

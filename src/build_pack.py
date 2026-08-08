@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from bilingualizer import bilingualize, load_language
 
 PACK_NAME = "terraria-bilingual-pack"
-PACK_AUTHOR = "terraria-bilin"
+PACK_AUTHOR = "QingGo"
 PACK_VERSION = (1, 0, 0)
 EN_LANG = "en-US"
 ZH_LANG = "zh-Hans"
@@ -36,21 +36,22 @@ def write_pack(export_dir: Path, output_dir: Path) -> Path:
     pack_json = {
         "Name": "Terraria Bilingual Pack (EN / 中文)",
         "Author": PACK_AUTHOR,
+        "Description": "Bilingual display pack: shows English and Simplified Chinese side by side. 英中双语显示资源包。",
         "Version": {
-            "Major": PACK_VERSION[0],
-            "Minor": PACK_VERSION[1],
-            "Build": PACK_VERSION[2],
+            "major": PACK_VERSION[0],
+            "minor": PACK_VERSION[1],
         },
     }
     (pack_dir / "pack.json").write_text(
         json.dumps(pack_json, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
+    # 官方要求：zip 内 pack.json 必须在根目录（直接压缩包内容，不包外层文件夹）
     zip_path = output_dir / f"{PACK_NAME}.zip"
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
         for path in sorted(pack_dir.rglob("*")):
             if path.is_file():
-                zf.write(path, path.relative_to(output_dir))
+                zf.write(path, path.relative_to(pack_dir))
     return zip_path
 
 

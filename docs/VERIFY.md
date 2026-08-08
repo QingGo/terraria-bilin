@@ -20,7 +20,8 @@
 - [ ] Boss 击败横幅：`{0} has been defeated! / {0}已被打败！` 玩家名两侧各填一次
 - [ ] NPC 对话：向导/商人对话框双语文案
 - [ ] 成就：名称与描述双语
-- [ ] UI 按钮短标签（Play/Back/Delete 等）保持英文（SINGLE 策略）
+- [ ] UI 按钮与玩家创建界面的短标签（Play/Back/Eyes/眼睛等）均已双语
+- [ ] 仅 AM/PM/HP/MP 等 <=3 字符符号保持英文（SINGLE 策略）
 
 ## 占位符专项
 
@@ -41,7 +42,7 @@
 - `Key`/`Language`/`CLI`/`EmojiCommand`/`Controls`：自引用或内部文本，跳过
 - `RandomWorldName_*`：随机世界名词表，避免生成怪异世界名
 - `CreditsRollCategory_*`：制作人员名单
-- UI/GameUI 短词按钮（<=8 字符且无空格）：空间敏感，保留英文
+- UI/GameUI 极短符号（<=3 字符如 AM/PM，无空格）保留英文
 - en/zh 完全相同的文本（专有名词如宠物名）
 - 占位符集合不一致的 key（官方 zh 数据自身 bug，如 `ItemTooltip.RubblemakerLarge`）
 
