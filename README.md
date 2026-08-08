@@ -20,16 +20,16 @@ NPC 对话：    "I can tell you about tools..." / "我可以告诉你关于工�
 
 ## 玩家使用方法（不用懂任何技术）
 
-1. **下载**：打开本页右侧的 [Releases](https://github.com/QingGo/terraria-bilin/releases) 页面，下载最新版 `terraria-bilin-v0.1.zip`（**不要解压**，直接使用 zip 文件）。
+1. **下载**：打开本页右侧的 [Releases](https://github.com/QingGo/terraria-bilin/releases) 页面，下载最新版 `terraria-bilin-v0.1.zip`。
 
 2. **放入资源包文件夹**：打开文件资源管理器，进入
    `我的文档\My Games\Terraria\ResourcePacks`
-   把下载的 zip 文件**原样**放进去（不要删除文件夹里的其他东西）。
+   把 zip 文件**原样**放进去（不要解压），或者把 zip 内容解压成一个文件夹放进去，两种方式游戏都支持（不要删除文件夹里的其他东西）。
 
    > 找不到「我的文档」？在资源管理器地址栏粘贴 `%USERPROFILE%\Documents\My Games\Terraria\ResourcePacks` 回车。
    > 如果文件夹不存在：先启动一次游戏再关闭，游戏会自动创建；也可以手动新建 `ResourcePacks` 文件夹（注意大小写）。
 
-3. **在游戏内启用**：启动 Terraria → 主菜单 → **资源包**（Resource Packs）→ 在列表中找到 **Terraria Bilingual Pack (EN / 中文)** → 点击 ▶ 移到右侧已启用列表 → 完成。回到游戏立即生效，无需重启。
+3. **在游戏内启用**：启动 Terraria → 主菜单 → **创意工坊**（Workshop）→ **使用资源包**（Resource Packs）→ 在列表中找到 **Terraria Bilingual Pack (EN / 中文)** → 点击 ▶ 移到右侧已启用列表 → 完成。回到游戏立即生效，无需重启。
 
 之后游戏内所有物品、NPC、对话、UI、成就都会以「英文 / 中文」双语显示，**英文在前、中文在后**。
 
@@ -73,6 +73,12 @@ uv run python src/verify.py --exe D:\...\Terraria.exe   # 全量验证（含数�
 ```
 
 发布新版本：打 tag `v0.1` 推送即可，CI 自动 测试 → 构建 → 验证 → 打包 zip 并发布到 GitHub Releases。
+
+### 发布到 Steam 创意工坊
+
+游戏内直接发布到创意工坊时**只接受解压文件夹形式**（会提示「压缩的资源包不能发布」）。用 `uv run python src/build_pack.py` 构建后，把输出的 `output\terraria-bilingual-pack\` 文件夹（内含 `pack.json`）复制到创意工坊的资源包目录，然后在游戏内操作：
+
+启动 Terraria → 主菜单 → 创意工坊 → 使用资源包 → 找到 **Terraria Bilingual Pack (EN / 中文)** → **发布到创意工坊** → 填名称与说明后确认，游戏会自动把资源包打包上传，订阅者即可通过创意工坊下载安装。
 
 ### 目录结构
 

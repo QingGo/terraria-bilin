@@ -51,7 +51,7 @@ Terraria **官方原生支持 Language Pack（语言包）**——以资源包�
   }
   ```
 - **CSV 格式**：`Key,Translation` 两列，key 为 `Category.Key`（如 `ItemName.CopperShortsword`）
-- **生效方式**：游戏内 资源包菜单 启用/停用（可热切换，无需重启）；与其它包冲突时按优先级（顶部优先）
+- **生效方式**：游戏内 主菜单 → 创意工坊 → 使用资源包 启用/停用（可热切换，无需重启）；与其它包冲突时按优先级（顶部优先）
 - **替换语义**：只替换列出的 key，未列出的保持原样——**天然支持"部分双语"**（只改想改的类别）
 - **安装**：手动（`Documents\My Games\Terraria\ResourcePacks\`，支持文件夹或 zip）或 Steam Workshop
 

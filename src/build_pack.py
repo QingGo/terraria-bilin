@@ -18,7 +18,7 @@ EN_LANG = "en-US"
 ZH_LANG = "zh-Hans"
 
 
-def write_pack(export_dir: Path, output_dir: Path) -> Path:
+def write_pack(export_dir: Path, output_dir: Path) -> tuple[Path, Path]:
     pack_dir = output_dir / PACK_NAME
     content_dir = pack_dir / "Content" / "Localization"
     content_dir.mkdir(parents=True, exist_ok=True)
@@ -52,18 +52,18 @@ def write_pack(export_dir: Path, output_dir: Path) -> Path:
         for path in sorted(pack_dir.rglob("*")):
             if path.is_file():
                 zf.write(path, path.relative_to(pack_dir))
-    return zip_path
+    return pack_dir, zip_path
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="构建双语资源包并打包 zip")
+    ap = argparse.ArgumentParser(description="构建双语资源包（解压文件夹 + zip）")
     ap.add_argument("--export-dir", type=Path, default=Path("_export"))
     ap.add_argument("--output-dir", type=Path, default=Path("output"))
     args = ap.parse_args()
 
-    zip_path = write_pack(args.export_dir, args.output_dir)
-    print(f"资源包已生成: {zip_path}")
-    print(f"大小: {zip_path.stat().st_size / 1024:.1f} KB")
+    pack_dir, zip_path = write_pack(args.export_dir, args.output_dir)
+    print(f"解压文件夹（可用于创意工坊发布）: {pack_dir}")
+    print(f"zip（玩家下载使用）: {zip_path}  大小: {zip_path.stat().st_size / 1024:.1f} KB")
 
 
 if __name__ == "__main__":

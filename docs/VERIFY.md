@@ -4,7 +4,7 @@
 
 1. 构建 `output\terraria-bilingual-pack.zip`（已由 build_pack.py 生成）
 2. 放入 `文档\My Games\Terraria\ResourcePacks\`（无则自建）
-3. 游戏内 主菜单 → 资源包（Resource Packs）→ 启用 **Terraria Bilingual Pack (EN / 中文)**
+3. 游戏内 主菜单 → 创意工坊 → 使用资源包 → 启用 **Terraria Bilingual Pack (EN / 中文)**
 4. 游戏语言 = English → 显示 `English / 中文`；游戏语言 = 中文 → 显示 `中文 / English`
 
 ## 生效机制验证（Phase 0 最小项）

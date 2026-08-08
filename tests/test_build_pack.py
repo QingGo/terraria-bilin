@@ -19,9 +19,9 @@ def test_build_pack_structure(tmp_path):
         export, ZH_LANG, {"ItemName": {"CopperShortsword": "铜短剑"}, "UI": {"TimeAtMorning": "上午"}}
     )
     out = tmp_path / "out"
-    zip_path = write_pack(export, out)
+    pack_dir, zip_path = write_pack(export, out)
 
-    assert zip_path.exists()
+    assert pack_dir.exists() and zip_path.exists()
     pack_dir = out / PACK_NAME
     assert (pack_dir / "pack.json").is_file()
     pack_json = json.loads((pack_dir / "pack.json").read_text("utf-8"))
