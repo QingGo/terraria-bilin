@@ -1,0 +1,16 @@
+[project]
+name = "terraria-bilin"
+version = "0.1.0"
+description = "Terraria bilingual (EN/ZH) resource pack builder"
+requires-python = ">=3.13"
+dependencies = [
+    "dnfile>=0.18.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
