@@ -26,7 +26,7 @@ def test_build_pack_structure(tmp_path):
     assert (pack_dir / "pack.json").is_file()
     pack_json = json.loads((pack_dir / "pack.json").read_text("utf-8"))
     assert pack_json["Name"]
-    assert pack_json["Version"] == {"major": 1, "minor": 0}
+    assert pack_json["Version"] == {"major": 0, "minor": 1}
 
     en_path = pack_dir / "Content" / "Localization" / f"{EN_LANG}-Bilingual.json"
     zh_path = pack_dir / "Content" / "Localization" / f"{ZH_LANG}-Bilingual.json"

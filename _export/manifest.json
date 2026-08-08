@@ -1,0 +1,16 @@
+{
+  "gameVersion": "1.4.5.6",
+  "dllSha1": "36c33d2d23842d359b9ef34abbc39b39d52c6bed",
+  "exportedAt": "2026-08-08T10:52:59.895303+00:00",
+  "languages": {
+    "en-US": {
+      "files": 7,
+      "keys": 20027
+    },
+    "zh-Hans": {
+      "files": 7,
+      "keys": 19962
+    }
+  },
+  "sourceExe": "D:\\steam\\steamapps\\common\\Terraria\\Terraria.exe"
+}

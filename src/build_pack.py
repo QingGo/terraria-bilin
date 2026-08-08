@@ -13,7 +13,7 @@ from bilingualizer import bilingualize, load_language
 
 PACK_NAME = "terraria-bilingual-pack"
 PACK_AUTHOR = "QingGo"
-PACK_VERSION = (1, 0, 0)
+PACK_VERSION = (0, 1, 0)
 EN_LANG = "en-US"
 ZH_LANG = "zh-Hans"
 

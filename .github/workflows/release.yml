@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Sync dependencies
+        run: uv sync
+
+      - name: Run unit tests
+        run: uv run pytest -q
+
+      - name: Build bilingual pack
+        run: uv run python src/build_pack.py
+
+      - name: Verify pack
+        run: uv run python src/verify.py
+
+      - name: Package release zip
+        run: |
+          cp output/terraria-bilingual-pack.zip terraria-bilin-${{ github.ref_name }}.zip
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: terraria-bilin-${{ github.ref_name }}.zip
+          generate_release_notes: true
